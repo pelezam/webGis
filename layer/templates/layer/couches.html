@@ -1,0 +1,60 @@
+{% extends 'dashboard.html' %}
+
+{% block dashboard_content %}
+    <div class="row ml-2 mb-0 mr-0 pb-0">
+        <div class="col flex-row">
+
+            <div class="mt-3 mr-3 mb-3">
+                <form action="{% url 'couches' %}" class="form-inline" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="zone">Zone</label>&nbsp;&nbsp;
+                        <select name="zone" class="form-control">
+                            <option value=""></option>
+                            {% for zone in zones %}
+                                <option value="{{ zone.id }}">{{ zone.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group ml-3">
+                        <button class="btn btn-success" type="submit">Charger</button>
+                    </div>
+                </form>
+            </div>
+
+            <table class="table table-bordered table-condensed mb-0 attribute_table list_layers">
+                <thead class="bg-light">
+                <tr>
+                    <th scope="col" class="border-0">Libelle</th>
+                    <th scope="col" class="border-0">Description</th>
+                    <th scope="col" class="border-0">zone</th>
+                    <th scope="col" class="border-0">Date de création</th>
+                    <th scope="col" class="border-0">options</th>
+                </tr>
+                </thead>
+                <tbody class="">
+                {% for layer in layers %}
+                    <tr>
+                        <td>{{ layer.name }}</td>
+                        <td>{{ layer.description }}</td>
+                        <td>{{ layer.zone.name }}</td>
+                        <td>{{ layer.created_at|date }}</td>
+                        <td>
+                            <a href="#" data-id="{{ layer.id }}" class="voir-couche"><i class="fa fa-eye"></i></a>
+                            <a href="#" data-id="{{ layer.id }}" class="edit-couche"><i class="fa fa-edit"></i></a>
+                            <a href="{% url 'get_attributs' layer.id %}" target="_blank" data-id="{{ layer.id }}" class="couche-attribute-data"><i class="fa fa-table"></i></a>
+                            <a href="/media/shp/export.zip"><i class="fa fa-download"></i></a>
+                            <a href="{% url 'delete_layer' layer.id %}" data-id="{{ layer.id }}" class="delete-couche"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col mb-0 pb-0 pr-0">
+            <div id="myMap" style="height: calc(100vh - 60px)"></div>
+        </div>
+    </div>
+
+{% endblock %}
+

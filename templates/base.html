@@ -1,0 +1,75 @@
+{% load static %}
+<!doctype html>
+<html class="no-js h-100" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>WebGis</title>
+    <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="{% static 'plugins/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'plugins/styles/fonts.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="{% static 'plugins/styles/shards-dashboards.1.1.0.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/styles/extras.1.1.0.min.css' %}">
+    <script async defer src="{% static 'plugins/scripts/buttons.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'plugins/leaflet/leaflet.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/fullscreen/leaflet.fullscreen.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/leaflet-draw/src/leaflet.draw.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/boostrap-treeview/bootstrap-treeview.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/leaflet-legend/leaflet-legend.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/DataTables/datatables.min.css' %}">
+    {% block css %}
+    {% endblock %}
+</head>
+{% block style %}
+{% endblock %}
+<body class="h-100">
+
+
+{% block content %}
+
+{% endblock %}
+
+
+{#import des modals#}
+{% include 'layer/partials/add_zone.html' %}
+{% include 'layer/partials/import_layer.html' %}
+{% include 'layer/partials/map_popup.html' %}
+{% include 'layer/partials/style_modal.html' %}
+{% include 'layer/partials/edit_layer_modal.html' %}
+{% include 'partials/deletle_confirmation_modal.html' %}
+
+<script src="{% static 'plugins/jQuery/jquery.min.js' %}"></script>
+<script src="{% static 'plugins/scripts/jquery.sharrre.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap/popper.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap/bootstrap.min.js' %}"></script>
+{#<script src="{% static 'plugins/chart.js/Chart.min.js' %}"></script>#}
+<script src="{% static 'plugins/scripts/shards.min.js' %}"></script>
+<script src="{% static 'plugins/scripts/extras.1.1.0.min.js'%}"></script>
+{#<script src="{% static 'plugins/scripts/shards-dashboards.1.1.0.min.js' %}"></script>#}
+{#<script src="{% static 'plugins/scripts/app/app-blog-overview.1.1.0.js' %}"></script>#}
+<script src="{% static 'plugins/leaflet/leaflet.js' %}"></script>
+<script src="{% static 'plugins/fullscreen/Leaflet.fullscreen.min.js' %}"></script>
+<script src="{% static 'plugins/leaflet-draw/src/leaflet.draw.js' %}"></script>
+<script src="{% static 'plugins/DataTables/datatables.min.js' %}"></script>
+<script src="{% static 'plugins/boostrap-treeview/bootstrap-treeview.min.js' %}"></script>
+<script src="{% static 'plugins/alert-toasts-boostrap/bootstrap-notify.min.js' %}"></script>
+<script src="{% static 'plugins/leaflet.browser.print-master/leaflet.browser.print.js' %}"></script>
+<script src="{% static 'plugins/leaflet.browser.print-master/leaflet.browser.print.utils.js' %}"></script>
+<script src="{% static 'plugins/leaflet.browser.print-master/leaflet.browser.print.sizes.js' %}"></script>
+<script src="{% static 'js/togo.js' %}"></script>
+<script src="{% static 'js/map.js' %}"></script>
+<script src="{% static 'js/app.js' %}"></script>
+<script src="{% static 'js/map_couche.js' %}"></script>
+<script>
+    $("#file").change(function(e){
+        let fileName = e.target.files[0].name;
+        $('#fileLabel').html(fileName)
+    });
+
+</script>
+{% block scripts %}
+{% endblock %}
+</body>
+</html>

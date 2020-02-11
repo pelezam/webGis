@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block style %}
+    <style>
+        body{
+            height: 100%;
+
+        }
+
+        body::after {
+            content: "";
+        {#background: url("/media/logo_Ispace.png");#}
+        {#background-repeat: no-repeat;#}
+        {#background-position: top;#}
+        {#background-size: 50%;#}
+            opacity: 0.3;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1;
+        }
+        html{
+            height: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container h-100">
+        <div class="row align-items-center h-100">
+            <div class="col-md-6 offset-3">
+                <div class="card card-small mb-4">
+                    <div class="card-header border-bottom h4">
+                        <img src="/media/logo_Ispace.png" alt="" class="img-thumbnail img-fluid">
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        {% if form.errors %} <div class="alert alert-danger text-center">Nom d'utilisateur ou mot de passe incorrect</div>{% endif %}
+                        <li class="list-group-item px-3">
+                            <form method="post" action="{% url 'login' %}">
+                                {% csrf_token %}
+                                <!-- Seamless Input Groups -->
+                                <div class="input-group mb-3">
+                                    <div class="input-group input-group-seamless">
+                                        <span class="input-group-prepend">
+                                          <span class="input-group-text">
+                                            <i class="material-icons">person</i>
+                                          </span>
+                                        </span>
+                                        <input type="text" class="form-control" name="username" id="form1-username" placeholder="Nom d'utilisateur" required>
+                                    </div>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group input-group-seamless">
+                                        <span class="input-group-prepend">
+                                          <span class="input-group-text">
+                                            <i class="material-icons">lock</i>
+                                          </span>
+                                        </span>
+                                        <input type="password" class="form-control" name="password" id="form1-username" placeholder="Mot de passe" required>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3">
+                                    <button type="reset" class="btn btn-secondary">Annuler</button>
+                                    <button class="btn btn-primary mr-2">Connexion</button>
+                                    <div class="d-md-inline float-right">
+{#                                        <a href="#" class="small">Mot de passe oublié</a>#}
+                                    </div>
+                                </div>
+
+                                <!-- / Seamless Input Groups -->
+                                <!-- Input/Button Group -->
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

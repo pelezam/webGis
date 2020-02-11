@@ -1,0 +1,76 @@
+#attribute_table_btn{
+    visibility: hidden;
+}
+
+#style_btn{
+    visibility: hidden;
+}
+
+
+.main-content{
+    overflow-x: hidden;
+}
+
+.nav{
+    background: #fff;
+    border:1px solid #cccccc;
+    line-height: 0;
+    padding: 5px 5px;
+
+}
+
+.nav a{
+
+}
+
+#navbarNav > .navbar-nav{
+    /*margin-left: 80px;*/
+    flex-direction: row;
+}
+
+#navbarNav > .navbar-nav a{
+
+}
+
+.nav-item{
+    margin-right: 10px;
+}
+
+.my-sidebar{
+    height: 640px;
+    overflow-y: hidden;
+    background: #fff;
+}
+
+.card-header{
+    border-radius: 0 !important;
+}
+
+
+.card-body{
+    height: calc(650px - 145px);
+    overflow: auto;
+}
+
+#map{
+    height: 100%;
+}
+
+.table-attributaire{
+    position: absolute;
+    width: 100%;
+    top:350px;
+    bottom: 0;
+    opacity: 1;
+    padding-left: 15px;
+    background: #fff;
+    z-index: 99999;
+    display: none;
+    overflow: auto;
+}
+
+.leaflet-popup-scrolled{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+

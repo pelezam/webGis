@@ -1,0 +1,29 @@
+<div class="row flex-column">
+    <div class="col m-1 p-0">
+         <button class="float-left close_btn pt-1"><i class="fa fa-close"></i></button>
+        <span class="lead attribute_layer_name p-1">Table attributaire: <em></em></span>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col">
+            <table class="table table-bordered table-condensed mb-0 attribute_table">
+                <thead class="bg-light attribute_thead">
+                <tr>
+                    {% for value in attributs %}
+                        {#                        <th scope="col" class="border-0">{{ value|capfirst }}</th>#}
+                    {% endfor %}
+                </tr>
+                </thead>
+                <tbody class="attribute_tbody">
+                {#                {% for i in alldata %}#}
+                {#                    <tr>#}
+                {#                        {% for k in i.values %}#}
+                {#                            <td>{{ k }}</td>#}
+                {#                        {% endfor %}#}
+                {#                    </tr>#}
+                {#                {% endfor %}#}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

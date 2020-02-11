@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- debut Sidebar -->
+{#            {% include 'partials/sidebar.html' %}#}
+            <!-- fin Sidebar -->
+
+            <main class="main-content col-lg-12 col-md-12 col-sm-12 p-0">
+                <!-- debut Navbar -->
+                <div class="main-navbar sticky-top bg-white">
+                    {% include 'partials/navbar.html' %}
+                </div>
+                <!-- / .fin-navbar -->
+                {% block dashboard_content %}
+
+                {% endblock %}
+                {#                {% include 'partials/footer.html' %}#}
+            </main>
+        </div>
+    </div>
+
+{% endblock %}
+
+

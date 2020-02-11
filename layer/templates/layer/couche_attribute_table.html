@@ -1,0 +1,44 @@
+{% extends 'dashboard.html' %}
+
+{% block dashboard_content %}
+
+    <div class="row mt-1 ml-3">
+        <div class="mt-2">
+            <span>Zone: <strong>{{ layer.zone.name }}</strong></span>
+            <span> Table attributaire: {{ layer.name }}</span>
+        </div>
+    </div>
+    <div class="row m-3 flex-column">
+
+        <div class="col">
+            <table class="table table-bordered table-condensed mb-0 couche_attribute_table">
+                <thead class="bg-light attribute_thead">
+                <tr>
+                    {% for value in attributs %}
+                        <th scope="col" class="border-0">{{ value|capfirst }}</th>
+                    {% endfor %}
+                </tr>
+                </thead>
+                <tbody class="attribute_tbody">
+                {% for item in all_attributs_data %}
+                    <tr>
+                        {% for t in item.values %}
+                            <td>{{ t }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        $('.couche_attribute_table').DataTable( {
+            "language": {
+                "url": "/media/datatable_langue/French.json"
+            },
+        } );
+    </script>
+{% endblock %}

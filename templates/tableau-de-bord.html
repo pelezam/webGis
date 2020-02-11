@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- debut Sidebar -->
+            {#            {% include 'partials/sidebar.html' %}#}
+            <!-- fin Sidebar -->
+
+            <main class="main-content col-lg-12 col-md-12 col-sm-12 p-0">
+                <!-- debut Navbar -->
+                <div class="main-navbar sticky-top bg-white">
+                    {% include 'partials/navbar.html' %}
+                </div>
+                <!-- / .fin-navbar -->
+
+                <!-- contenu à modifier -->
+                <ul class="nav justify-content-start">
+                    <li class="nav-item">
+                        <button class="btn btn-info" href="#" data-toggle="modal" data-target="#layer_import_form"> <i class="fa fa-map"></i> Importer une couche</button>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-info" href="#"> <i class="fa fa-save"></i> Enregister une carte</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-info" type="button" data-toggle="modal" data-target="#zone_form" id="zone_add_btn"> <i class="fa fa-map-marker"></i> Ajouter une zone</button>
+                    </li>
+
+                    <li class="nav-item" id="attribute_table_btn">
+                        <a class="btn btn-info" href="#"> <i class="fa fa-table"></i> Table attributaire</a>
+                    </li>
+
+                    <li class="nav-item" id="style_btn">
+                        <a class="btn btn-info layer-style-btn" href="#" data-toggle="modal" data-target="#styleModal"> <i class="fa fa-edit"></i> Style</a>
+                    </li>
+                </ul>
+
+                <div class="row">
+                    <div class="col-md-2 col-sm-1 col-lg-2 m-0 p-0 my-sidebar">
+                        <div class="accordion" id="accordionExample">
+                            <div class="card" >
+                                <div class="card-header" id="headingOne">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-success btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            couches
+                                        </button>
+                                    </h2>
+                                </div>
+
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body pt-0">
+                                        <div id="tree"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-success btn-block" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            cartes
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                    <div class="card-body" style="height: calc(650px - 145px); overflow: auto">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-10 pl-0" style="position: relative;">
+                        <div id="map"></div>
+                        <div class="table-attributaire">
+                            {% include 'layer/partials/attribute_table.html' %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- fin de contenu -->
+
+                {# {% include 'partials/footer.html' %} #}
+
+            </main>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+
+{% block scripts %}
+    <script>
+
+    </script>
+{% endblock %}
