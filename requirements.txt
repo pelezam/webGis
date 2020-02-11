@@ -94,7 +94,7 @@ submit50==3.0.2
 systemd-python==234
 termcolor==1.1.0
 traitlets==4.3.2
-Twisted==17.9.0
+Twisted==19.7.0
 ufw==0.35
 unattended-upgrades==0.1
 uritemplate==3.0.1
